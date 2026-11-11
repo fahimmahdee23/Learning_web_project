@@ -1,0 +1,32 @@
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+<h2>Ohm's Law Calculator</h2>
+
+<form th:action="@{/calculate}" method="post">
+
+    <label>Voltage (V):</label>
+    <input type="number" name="voltage"
+           step="any" min="0" required>
+
+    <label>Resistance (Ω):</label>
+    <input type="number" name="resistance"
+           step="any" min="0.000001" required>
+
+    <button type="submit">Calculate</button>
+
+</form>
+
+<div th:if="${current != null}">
+    <h3>Calculation Result</h3>
+
+    <p>Voltage: <span th:text="${voltage}"></span> V</p>
+
+    <p>Resistance: <span th:text="${resistance}"></span> Ω</p>
+
+    <h2>
+        Current:
+        <span th:text="${current}"></span> A
+    </h2>
+</div>
+
+<p th:if="${error != null}" th:text="${error}"></p>
