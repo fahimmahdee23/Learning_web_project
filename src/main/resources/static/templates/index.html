@@ -1,32 +1,153 @@
-<link rel="stylesheet" th:href="@{/css/style.css}">
 
-<h2>Ohm's Law Calculator</h2>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<form th:action="@{/calculate}" method="post">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <label>Voltage (V):</label>
-    <input type="number" name="voltage"
-           step="any" min="0" required>
+    <title>Physics Learning Hub | Ohm's Law</title>
 
-    <label>Resistance (Ω):</label>
-    <input type="number" name="resistance"
-           step="any" min="0.000001" required>
+    
+<link rel="stylesheet" th:href="@{css\style.css}">
 
-    <button type="submit">Calculate</button>
+</head>
 
-</form>
+<body>
 
-<div th:if="${current != null}">
-    <h3>Calculation Result</h3>
+    <header>
+        <h1>Physics Learning Hub</h1>
+        <p>Understand Physics Through Interactive Learning</p>
+    </header>
 
-    <p>Voltage: <span th:text="${voltage}"></span> V</p>
+    <nav>
+        <a href="/">Home</a>
+        <a href="#lesson">Lesson</a>
+        <a href="#formula">Formula</a>
+        <a href="#calculator">Calculator</a>
+    </nav>
 
-    <p>Resistance: <span th:text="${resistance}"></span> Ω</p>
+    <main>
 
-    <h2>
-        Current:
-        <span th:text="${current}"></span> A
-    </h2>
-</div>
+        <section class="hero">
+            <h2>Welcome to Ohm's Law</h2>
+            <p>
+                Learn how voltage, current, and resistance
+                are connected in an electrical circuit.
+            </p>
+        </section>
 
-<p th:if="${error != null}" th:text="${error}"></p>
+        <section id="lesson" class="content-section">
+            <h2>What is Ohm's Law?</h2>
+
+            <p>
+                Ohm's Law explains the relationship between
+                voltage, current, and resistance in an
+                electrical circuit.
+            </p>
+
+            <p>
+                It states that the current flowing through
+                a conductor is directly proportional to
+                voltage and inversely proportional to
+                resistance, provided temperature remains constant.
+            </p>
+        </section>
+
+        <section id="formula" class="content-section">
+            <h2>Ohm's Law Formula</h2>
+
+            <div class="formula">
+                I = V / R
+            </div>
+
+            <ul>
+                <li><strong>V</strong> = Voltage (Volts)</li>
+                <li><strong>I</strong> = Current (Amperes)</li>
+                <li><strong>R</strong> = Resistance (Ohms)</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Example</h2>
+
+            <p>
+                Suppose a circuit has a voltage of 12 V
+                and resistance of 6 Ω.
+            </p>
+
+            <p>
+                Current = Voltage / Resistance
+            </p>
+
+            <p>
+                Current = 12 / 6 = 2 A
+            </p>
+        </section>
+
+        <section id="calculator" class="content-section calculator">
+
+            <h2>Ohm's Law Calculator</h2>
+
+            <p>Enter voltage and resistance to calculate current.</p>
+
+            <form th:action="@{/calculate}" method="post">
+
+                <label for="voltage">Voltage (V)</label>
+                <input
+                    type="number"
+                    id="voltage"
+                    name="voltage"
+                    step="any"
+                    min="0"
+                    placeholder="Enter voltage"
+                    required>
+
+                <label for="resistance">Resistance (Ω)</label>
+                <input
+                    type="number"
+                    id="resistance"
+                    name="resistance"
+                    step="any"
+                    min="0.000001"
+                    placeholder="Enter resistance"
+                    required>
+
+                <button type="submit">Calculate Current</button>
+
+            </form>
+
+            <div class="result" th:if="${current != null}">
+                <h3>Calculation Result</h3>
+
+                <p>
+                    Voltage:
+                    <span th:text="${voltage}"></span> V
+                </p>
+
+                <p>
+                    Resistance:
+                    <span th:text="${resistance}"></span> Ω
+                </p>
+
+                <h2>
+                    Current:
+                    <span th:text="${#numbers.formatDecimal(current, 1, 4)}"></span> A
+                </h2>
+            </div>
+
+            <p class="error"
+               th:if="${error != null}"
+               th:text="${error}">
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Physics Learning Hub | Educational Project</p>
+    </footer>
+
+</body>
+</html>

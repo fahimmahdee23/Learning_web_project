@@ -1,0 +1,167 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    color: #263238;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #173b67;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+nav {
+    background-color: #102c4d;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 18px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #69d2ff;
+}
+
+main {
+    width: 85%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.hero {
+    background-color: #dceeff;
+    padding: 35px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.hero h2 {
+    color: #173b67;
+    margin-bottom: 10px;
+}
+
+.content-section {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.content-section h2 {
+    color: #173b67;
+    margin-bottom: 15px;
+}
+
+.content-section p {
+    margin-bottom: 12px;
+}
+
+.formula {
+    background-color: #e8f3ff;
+    color: #07569a;
+    text-align: center;
+    padding: 25px;
+    margin: 15px 0;
+    font-size: 32px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+ul {
+    padding-left: 25px;
+}
+
+.calculator form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.calculator label {
+    font-weight: bold;
+}
+
+.calculator input {
+    padding: 12px;
+    border: 1px solid #bdc9d6;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+.calculator button {
+    background-color: #1769aa;
+    color: white;
+    padding: 13px;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.calculator button:hover {
+    background-color: #104b7c;
+}
+
+.result {
+    background-color: #e5f7ec;
+    border-left: 5px solid #269653;
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 7px;
+}
+
+.result h2 {
+    color: #168044;
+}
+
+.error {
+    color: #c62828;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+footer {
+    background-color: #173b67;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+    main {
+        width: 92%;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 8px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+}
