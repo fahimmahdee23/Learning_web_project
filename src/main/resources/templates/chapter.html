@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title th:text="${chapterTitle}">Chapter Notes</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <a href="/" class="logo">
+            Learn<span>Space.</span>
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li class="dropdown">
+
+                <a href="#">
+                    Chapters <span>⌄</span>
+                </a>
+
+                <div class="dropdown-menu">
+
+                    <a th:each="item : ${chapters}"
+                       th:href="@{/chapter/{number}(number=${item.chapterNumber})}"
+                       th:text="${item.chapterTitle}">
+                        Chapter
+                    </a>
+
+                </div>
+
+            </li>
+
+        </ul>
+
+        <a href="/" class="nav-button">
+            Home →
+        </a>
+
+    </nav>
+
+
+    <!-- CHAPTER BANNER -->
+    <section class="chapter-banner">
+
+        <span class="tag">YOUR STUDY MATERIAL</span>
+
+        <h1 th:text="${chapterTitle}">
+            Chapter Title
+        </h1>
+
+        <p th:text="${chapterDescription}">
+            Chapter Description
+        </p>
+
+        <div class="breadcrumb">
+
+            <a href="/">Home</a>
+
+            <span>/</span>
+
+            <span th:text="${chapterTitle}">
+                Chapter
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- NOTES AREA -->
+    <main class="notes-layout">
+
+
+        <!-- SIDEBAR -->
+        <aside class="notes-sidebar">
+
+            <h3>Chapter Contents</h3>
+
+            <p>Jump to a topic</p>
+
+            <a th:each="note, status : ${notes}"
+               th:href="|#topic-${status.count}|"
+               th:text="|${status.count}. ${note}|">
+                Topic
+            </a>
+
+            <a href="/" class="back-link">
+                ← Back to Home
+            </a>
+
+        </aside>
+
+
+        <!-- MAIN NOTES -->
+        <section class="notes-content">
+
+            <div class="notes-heading">
+
+                <span class="tag">CHAPTER NOTES</span>
+
+                <h2 th:text="${chapterTitle}">
+                    Chapter Title
+                </h2>
+
+                <p>
+                    Study each topic carefully.
+                    These sections are organized
+                    to make your learning easier.
+                </p>
+
+            </div>
+
+
+            <!-- TOPIC 1, 2, 3, 4 -->
+            <article class="topic-card"
+                     th:each="note, status : ${notes}"
+                     th:id="|topic-${status.count}|">
+
+                <span class="topic-number"
+                      th:text="|TOPIC ${status.count}|">
+                    TOPIC 1
+                </span>
+
+                <h3 th:text="${note}">
+                    Topic Title
+                </h3>
+
+                <p>
+                    This is the notes section for
+                    this topic. Add your detailed
+                    explanations, definitions and
+                    examples here.
+                </p>
+
+                <div class="important-box">
+
+                    <strong>Important Note</strong>
+
+                    <p>
+                        Add important definitions,
+                        formulas and key points here.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- PREVIOUS AND NEXT -->
+            <div class="notes-navigation">
+
+                <a th:href="@{/chapter/{number}(number=${chapterNumber - 1})}"
+                   th:if="${chapterNumber > 1}"
+                   class="secondary-button">
+                    ← Previous Chapter
+                </a>
+
+                <a th:href="@{/}"
+                   th:if="${chapterNumber == 1}"
+                   class="secondary-button">
+                    ← Home
+                </a>
+
+                <a th:href="@{/chapter/{number}(number=${chapterNumber + 1})}"
+                   th:if="${chapterNumber < 4}"
+                   class="primary-button">
+                    Next Chapter →
+                </a>
+
+                <a th:href="@{/}"
+                   th:if="${chapterNumber == 4}"
+                   class="primary-button">
+                    Finish Learning →
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <h2>Learn<span>Space.</span></h2>
+
+        <p>Keep Learning. Keep Growing.</p>
+
+        <p class="copyright">
+            © 2026 LearnSpace. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>

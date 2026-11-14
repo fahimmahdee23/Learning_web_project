@@ -1,0 +1,830 @@
+
+/* =====================================
+   1. GLOBAL STYLING
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f8f9ff;
+    color: #20294a;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =====================================
+   2. NAVIGATION BAR
+===================================== */
+
+.navbar {
+    height: 82px;
+    padding: 0 9%;
+    background: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    box-shadow: 0 3px 18px rgba(28, 35, 80, 0.06);
+}
+
+.logo,
+.footer-logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: #20294a;
+    letter-spacing: -1px;
+}
+
+.logo span,
+.footer-logo span {
+    color: #7664e8;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 38px;
+}
+
+.nav-link {
+    color: #46506c;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #7664e8;
+}
+
+.arrow {
+    margin-left: 5px;
+}
+
+
+/* CHAPTER DROPDOWN */
+
+.dropdown {
+    position: relative;
+    padding: 20px 0;
+}
+
+.dropdown-menu {
+    display: none;
+
+    position: absolute;
+    top: 100%;
+    left: -20px;
+
+    width: 205px;
+    background: white;
+
+    border-radius: 12px;
+    padding: 10px;
+
+    box-shadow: 0 10px 35px rgba(25, 30, 65, 0.13);
+    border: 1px solid #ececff;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px;
+
+    border-radius: 8px;
+    color: #46506c;
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background: #f0eeff;
+    color: #7664e8;
+}
+
+
+/* NAV BUTTON */
+
+.nav-cta {
+    background: #7664e8;
+    color: white;
+
+    padding: 12px 20px;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.nav-cta:hover {
+    background: #5945cb;
+}
+
+
+/* =====================================
+   3. HERO SECTION
+===================================== */
+
+.hero {
+    min-height: 590px;
+    padding: 80px 9%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+
+    background:
+        radial-gradient(circle at 85% 30%,
+        #e6e0ff 0, transparent 32%),
+        linear-gradient(120deg, #f7f6ff, #f0efff);
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-tag,
+.section-tag {
+    display: inline-block;
+
+    color: #7664e8;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 5vw, 64px);
+    line-height: 1.15;
+    letter-spacing: -2px;
+
+    color: #20294a;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #7664e8;
+}
+
+.hero-content > p {
+    color: #737d98;
+    font-size: 16px;
+    line-height: 1.9;
+
+    max-width: 520px;
+    margin-bottom: 30px;
+}
+
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+
+    padding: 14px 23px;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #7664e8;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5945cb;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: white;
+    color: #7664e8;
+    border: 1px solid #e1dcff;
+}
+
+.btn-secondary:hover {
+    background: #f0eeff;
+}
+
+
+/* HERO STATISTICS */
+
+.hero-stats {
+    display: flex;
+    gap: 45px;
+    margin-top: 55px;
+}
+
+.hero-stats h3 {
+    color: #20294a;
+    font-size: 25px;
+}
+
+.hero-stats p {
+    color: #8991a7;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
+/* HERO VISUAL CARD */
+
+.hero-visual {
+    position: relative;
+    width: 370px;
+    min-width: 300px;
+}
+
+.visual-card {
+    background: white;
+    padding: 38px;
+
+    border-radius: 22px;
+
+    box-shadow: 0 25px 60px rgba(70, 60, 160, 0.12);
+    border: 1px solid #efedff;
+}
+
+.visual-icon {
+    font-size: 65px;
+    margin-bottom: 25px;
+}
+
+.visual-label {
+    font-size: 11px;
+    color: #7664e8;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.visual-card h2 {
+    font-size: 27px;
+    line-height: 1.4;
+
+    margin: 15px 0;
+    color: #20294a;
+}
+
+.visual-card > p {
+    color: #8991a7;
+    font-size: 14px;
+}
+
+.visual-progress {
+    margin-top: 35px;
+}
+
+.progress-heading {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 11px;
+    color: #737d98;
+
+    margin-bottom: 10px;
+}
+
+.progress-track {
+    height: 8px;
+    background: #efedff;
+    border-radius: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 65%;
+
+    background: #7664e8;
+    border-radius: 10px;
+}
+
+.floating-note {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+
+    padding: 15px 20px;
+    background: white;
+
+    border-radius: 10px;
+    color: #7664e8;
+
+    font-weight: 700;
+    font-size: 13px;
+
+    box-shadow: 0 8px 25px rgba(50, 40, 100, 0.1);
+}
+
+
+/* =====================================
+   4. CHAPTER SECTION
+===================================== */
+
+.chapters-section {
+    padding: 95px 9%;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 650px;
+
+    margin: 0 auto 55px;
+}
+
+.section-heading h2 {
+    font-size: 37px;
+    color: #20294a;
+    margin-bottom: 15px;
+}
+
+.section-heading p:last-child {
+    color: #8991a7;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* CHAPTER GRID */
+
+.chapter-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.chapter-card {
+    display: block;
+
+    background: white;
+    border: 1px solid #edecf7;
+    border-radius: 16px;
+
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.chapter-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 15px 40px rgba(60, 50, 130, 0.09);
+    border-color: #d8d1ff;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+.chapter-number {
+    color: #7664e8;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.card-icon {
+    background: #f0eeff;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 13px;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 25px;
+}
+
+.chapter-card h3 {
+    color: #20294a;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.chapter-card p {
+    color: #8991a7;
+    font-size: 14px;
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    color: #7664e8;
+    font-weight: 700;
+    font-size: 14px;
+
+    padding-top: 18px;
+    border-top: 1px solid #f0eff7;
+}
+
+
+/* =====================================
+   5. ABOUT SECTION
+===================================== */
+
+.about-section {
+    padding: 90px 9%;
+    background: #f0eeff;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 700px;
+    margin: auto;
+}
+
+.about-content h2 {
+    color: #20294a;
+    font-size: 37px;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    color: #737d98;
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 30px;
+}
+
+
+/* =====================================
+   6. CHAPTER HEADER
+===================================== */
+
+.chapter-banner {
+    padding: 65px 9%;
+    text-align: center;
+
+    background: linear-gradient(120deg, #f0eeff, #faf9ff);
+}
+
+.chapter-banner h1 {
+    font-size: 43px;
+    color: #20294a;
+    margin-bottom: 15px;
+}
+
+.chapter-banner > p {
+    color: #8991a7;
+    line-height: 1.8;
+}
+
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    margin-top: 25px;
+
+    font-size: 13px;
+    color: #8991a7;
+}
+
+.breadcrumb a {
+    color: #7664e8;
+    font-weight: 700;
+}
+
+
+/* =====================================
+   7. NOTES LAYOUT
+===================================== */
+
+.notes-layout {
+    max-width: 1250px;
+    margin: 60px auto;
+    padding: 0 30px;
+
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 40px;
+
+    align-items: start;
+}
+
+
+/* NOTES SIDEBAR */
+
+.notes-sidebar {
+    position: sticky;
+    top: 105px;
+
+    background: white;
+    padding: 25px;
+
+    border-radius: 14px;
+    border: 1px solid #edecf7;
+}
+
+.notes-sidebar h3 {
+    color: #20294a;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.notes-sidebar p {
+    font-size: 12px;
+    color: #8991a7;
+    margin-bottom: 20px;
+}
+
+.notes-sidebar a {
+    display: block;
+
+    padding: 12px;
+    margin-bottom: 5px;
+
+    border-radius: 7px;
+
+    color: #65708a;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.notes-sidebar a:hover {
+    background: #f0eeff;
+    color: #7664e8;
+}
+
+
+/* NOTES CONTENT */
+
+.notes-content {
+    min-width: 0;
+}
+
+.notes-heading {
+    margin-bottom: 30px;
+}
+
+.notes-heading h2 {
+    font-size: 32px;
+    color: #20294a;
+    margin-bottom: 12px;
+}
+
+.notes-heading p {
+    color: #8991a7;
+    line-height: 1.8;
+}
+
+
+/* TOPIC CARDS */
+
+.topic-card {
+    background: white;
+    padding: 32px;
+
+    border-radius: 14px;
+    border: 1px solid #edecf7;
+
+    margin-bottom: 25px;
+
+    scroll-margin-top: 110px;
+}
+
+.topic-number {
+    display: inline-block;
+
+    background: #f0eeff;
+    color: #7664e8;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    padding: 8px 12px;
+    border-radius: 5px;
+
+    margin-bottom: 20px;
+}
+
+.topic-card h3 {
+    color: #20294a;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.topic-card > p {
+    color: #737d98;
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+.important-box {
+    margin-top: 25px;
+    padding: 20px;
+
+    background: #f5f3ff;
+
+    border-left: 4px solid #7664e8;
+    border-radius: 5px;
+}
+
+.important-box strong {
+    color: #5945cb;
+    font-size: 14px;
+}
+
+.important-box p {
+    color: #737d98;
+    font-size: 14px;
+    line-height: 1.8;
+
+    margin-top: 8px;
+}
+
+
+/* NOTES NAVIGATION */
+
+.notes-navigation {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 15px;
+    flex-wrap: wrap;
+
+    margin-top: 35px;
+}
+
+
+/* =====================================
+   8. FOOTER
+===================================== */
+
+.footer {
+    background: #20294a;
+    color: white;
+
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.footer-logo {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.footer p {
+    color: #b9bfd2;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.copyright {
+    padding-top: 20px;
+
+    border-top: 1px solid #3c4562;
+
+    margin-top: 25px !important;
+}
+
+
+/* =====================================
+   9. RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-visual {
+        width: 100%;
+        max-width: 420px;
+        align-self: center;
+    }
+
+    .notes-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .notes-sidebar {
+        position: static;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+        height: 75px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .dropdown-menu {
+        left: auto;
+        right: -20px;
+    }
+
+    .hero {
+        padding: 65px 7%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-stats {
+        gap: 22px;
+    }
+
+    .chapters-section {
+        padding: 65px 7%;
+    }
+
+    .chapter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+
+    .about-content h2 {
+        font-size: 29px;
+    }
+
+    .chapter-banner h1 {
+        font-size: 34px;
+    }
+
+    .notes-layout {
+        padding: 0 18px;
+        margin: 35px auto;
+    }
+
+    .topic-card {
+        padding: 23px;
+    }
+
+    .notes-navigation {
+        flex-direction: column;
+    }
+
+    .notes-navigation a {
+        text-align: center;
+    }
+
+}

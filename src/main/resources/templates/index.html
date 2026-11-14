@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LearnSpace | Home</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+  <nav class="navbar">
+
+    <a href="/" class="logo">
+        Learn<span>Space.</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="/" class="active">Home</a></li>
+
+        <li class="dropdown">
+            <a href="#chapters">Chapters ⌄</a>
+
+            <div class="dropdown-menu">
+                <a th:each="chapter : ${chapters}"
+                   th:href="@{/chapter/{number}(number=${chapter.chapterNumber})}"
+                   th:text="${chapter.chapterTitle}">
+                    Chapter
+                </a>
+            </div>
+        </li>
+    </ul>
+
+    <a href="#chapters" class="nav-button">
+        Start Learning →
+    </a>
+
+</nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                YOUR LEARNING JOURNEY STARTS HERE
+            </span>
+
+            <h1>
+                Learn Smarter.<br>
+                <span>Achieve More.</span>
+            </h1>
+
+            <p>
+                Explore your study materials, understand difficult
+                concepts and learn at your own pace with our
+                chapter-based learning platform.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#chapters" class="btn-primary">
+                    Explore Chapters →
+                </a>
+
+                <a href="#about" class="btn-secondary">
+                    About Us
+                </a>
+
+            </div>
+
+            <div class="hero-stats">
+
+                <div>
+                    <h3 th:text="${#lists.size(chapters)}">04</h3>
+                    <p>Chapters</p>
+                </div>
+
+                <div>
+                    <h3>24/7</h3>
+                    <p>Learn Anytime</p>
+                </div>
+
+                <div>
+                    <h3>100%</h3>
+                    <p>Self Learning</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Hero Visual -->
+        <div class="hero-visual">
+
+            <div class="visual-card">
+
+                <div class="visual-icon">📚</div>
+
+                <span class="visual-label">
+                    YOUR STUDY SPACE
+                </span>
+
+                <h2>
+                    Knowledge is the key to success.
+                </h2>
+
+                <p>Read. Understand. Practice.</p>
+
+                <div class="visual-progress">
+
+                    <div class="progress-heading">
+                        <span>Your learning journey</span>
+                        <span>4 Chapters</span>
+                    </div>
+
+                    <div class="progress-track">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="floating-note">
+                ✦ Keep Learning
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Chapter Section -->
+    <section class="chapters-section" id="chapters">
+
+        <div class="section-heading">
+
+            <span class="section-tag">
+                LEARNING MATERIALS
+            </span>
+
+            <h2>Explore Your Chapters</h2>
+
+            <p>
+                Select a chapter and access its notes,
+                explanations and important topics.
+            </p>
+
+        </div>
+
+
+        <!-- Dynamic Chapter Cards -->
+        <div class="chapter-grid">
+
+            <a th:each="chapter : ${chapters}"
+               th:href="@{/chapter/{number}(number=${chapter.chapterNumber})}"
+               class="chapter-card">
+
+                <div class="card-top">
+
+                    <span class="chapter-number"
+                          th:text="${#numbers.formatInteger(chapter.chapterNumber, 2)}">
+                        01
+                    </span>
+
+                    <span class="card-icon">📖</span>
+
+                </div>
+
+                <h3 th:text="${chapter.chapterTitle}">
+                    Chapter 1
+                </h3>
+
+                <p th:text="${chapter.description}">
+                    Chapter description
+                </p>
+
+                <div class="card-bottom">
+
+                    <span>Explore Notes</span>
+                    <span>→</span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+
+        <div class="about-content">
+
+            <span class="section-tag">
+                ABOUT LEARNSPACE
+            </span>
+
+            <h2>
+                Learning Made Easier for Everyone.
+            </h2>
+
+            <p>
+                LearnSpace is a student-focused educational
+                platform designed to make studying easier.
+                Students can explore chapter-wise notes and
+                understand academic concepts in an organized way.
+            </p>
+
+            <a href="#chapters" class="btn-primary">
+                Start Learning →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+   <footer class="footer">
+
+    <h2>Learn<span>Space.</span></h2>
+
+    <p>Learn at your own pace. Build your future.</p>
+
+    <p class="copyright">
+        © 2026 LearnSpace. All rights reserved.
+    </p>
+
+</footer>
+
+</body>
+</html>
