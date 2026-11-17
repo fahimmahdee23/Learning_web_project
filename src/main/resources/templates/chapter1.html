@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title th:text="'LearnSpace | ' + ${chapter.chapterTitle}">LearnSpace | Chapter 1</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <a href="/" class="logo">
+            Learn<span>Space.</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="/" class="nav-link">Home</a></li>
+
+            <li class="dropdown">
+                <a href="/#chapters" class="nav-link">Chapters <span class="arrow">⌄</span></a>
+
+                <div class="dropdown-menu">
+                    <a th:each="c : ${chapters}"
+                       th:href="@{/chapter/{number}(number=${c.chapterNumber})}"
+                       th:text="${c.chapterTitle}">
+                        Chapter
+                    </a>
+                </div>
+            </li>
+        </ul>
+
+        <a href="/#chapters" class="nav-cta">
+            All Chapters →
+        </a>
+
+    </nav>
+
+
+    <!-- Chapter Banner -->
+    <section class="chapter-banner">
+
+        <h1 th:text="'Chapter ' + ${chapter.chapterNumber} + ': ' + ${chapter.chapterTitle}">
+            Chapter 1: Introduction to Motion
+        </h1>
+
+        <p th:text="${chapter.description}">
+            Chapter description
+        </p>
+
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <span th:text="'Chapter ' + ${chapter.chapterNumber}">Chapter 1</span>
+        </div>
+
+    </section>
+
+
+    <!-- Notes Layout -->
+    <div class="notes-layout">
+
+        <!-- Sidebar -->
+        <aside class="notes-sidebar">
+            <h3>Topics</h3>
+            <p>Jump to a section</p>
+
+            <a href="#topic-1">1. Introduction</a>
+            <a href="#topic-2">2. Basic Concepts</a>
+            <a href="#topic-3">3. Definitions</a>
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="notes-content">
+
+            <div class="notes-heading">
+                <h2>Introduction to Motion</h2>
+                <p>Read the three topics below in order.</p>
+            </div>
+
+
+            <!-- Topic 1 -->
+            <article class="topic-card" id="topic-1">
+                <span class="topic-number">TOPIC 1</span>
+                <h3>Introduction</h3>
+
+                <p>
+                    Motion means a change in the position of an object with time.
+                    A car moving on a road, a falling apple and a walking person
+                    are all examples of motion. An object is said to be at rest
+                    if its position does not change with time.
+                </p>
+
+                <div class="important-box">
+                    <strong>Remember</strong>
+                    <p>Whether an object is moving or at rest depends on the reference point.</p>
+                </div>
+            </article>
+
+
+            <!-- Topic 2 -->
+            <article class="topic-card" id="topic-2">
+                <span class="topic-number">TOPIC 2</span>
+                <h3>Basic Concepts</h3>
+
+                <p>
+                    <b>Distance</b> is the total length of the path travelled by an object.
+                    It has magnitude only.
+                </p>
+                <br>
+                <p>
+                    <b>Displacement</b> is the shortest straight-line distance from the
+                    starting point to the end point, with direction.
+                </p>
+                <br>
+                <p>
+                    <b>Speed</b> tells how fast an object moves, while
+                    <b>velocity</b> is speed in a given direction.
+                </p>
+                <br>
+                <p>
+                    <b>Acceleration</b> is the rate at which velocity changes with time.
+                </p>
+
+                <div class="important-box">
+                    <strong>Remember</strong>
+                    <p>Distance and speed are scalar quantities. Displacement and velocity are vector quantities.</p>
+                </div>
+            </article>
+
+
+            <!-- Topic 3 -->
+            <article class="topic-card" id="topic-3">
+                <span class="topic-number">TOPIC 3</span>
+                <h3>Definitions</h3>
+
+                <p>Speed = Distance / Time</p>
+                <p>Velocity = Displacement / Time</p>
+                <p>Acceleration = (Final velocity − Initial velocity) / Time</p>
+
+                <div class="important-box">
+                    <strong>Units</strong>
+                    <p>Speed and velocity are measured in m/s. Acceleration is measured in m/s².</p>
+                </div>
+            </article>
+
+
+            <!-- Bottom Navigation -->
+            <div class="notes-navigation">
+                <a href="/" class="btn-secondary">← All Chapters</a>
+                <a href="/chapter/2" class="btn-primary">Next: Chapter 2 →</a>
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <h2 class="footer-logo">Learn<span>Space.</span></h2>
+
+        <p>Learn at your own pace. Build your future.</p>
+
+        <p class="copyright">
+            © 2026 LearnSpace. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>

@@ -1,49 +1,41 @@
-
 package com.example.learningweb.controller;
 
-import com.example.learningweb.model.Chapter;
-import com.example.learningweb.service.ChapterService;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.example.learningweb.model.Chapter;
+
 @Controller
 public class HomeController {
 
-    private final ChapterService chapterService;
+    private final List<Chapter> chapters = List.of(
+        new Chapter(1, "Introduction to Motion",
+            "Introduction, basic concepts and definitions of motion.", List.of()),
+        new Chapter(2, "Force and Newton's Laws",
+            "Fundamental principles, important terms and examples.", List.of()),
+        new Chapter(3, "Equations of Motion",
+            "Advanced concepts, applications and problem solving.", List.of()),
+        new Chapter(4, "Applications and Review",
+            "Applications, important questions and summary.", List.of())
+    );
 
-    public HomeController(ChapterService chapterService) {
-        this.chapterService = chapterService;
-    }
-
-    // Home page
     @GetMapping("/")
     public String home(Model model) {
-
-        model.addAttribute("chapters",
-                chapterService.getAllChapters());
-
+        model.addAttribute("chapters", chapters);
         return "index";
     }
 
-    // Individual chapter page
     @GetMapping("/chapter/{number}")
-    public String showChapter(@PathVariable int number, Model model) {
-
-        Chapter chapter = chapterService.getChapterByNumber(number);
-
-        if (chapter == null) {
+    public String chapter(@PathVariable int number, Model model) {
+        if (number < 1 || number > chapters.size()) {
             return "redirect:/";
         }
-
-        model.addAttribute("chapters", chapterService.getAllChapters());
-        model.addAttribute("chapterTitle", chapter.getChapterTitle());
-        model.addAttribute("chapterNumber", chapter.getChapterNumber());
-        model.addAttribute("chapterDescription", chapter.getDescription());
-        model.addAttribute("notes", chapter.getNotes());
-
-        return "chapter";
+        model.addAttribute("chapters", chapters);
+        model.addAttribute("chapter", chapters.get(number - 1));
+        return "chapter" + number;
     }
 }

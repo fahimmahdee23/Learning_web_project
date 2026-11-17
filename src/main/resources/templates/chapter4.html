@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="'LearnSpace | ' + ${chapter.chapterTitle}">LearnSpace | Chapter 4</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="logo">Learn<span>Space.</span></a>
+        <ul class="nav-links">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li class="dropdown">
+                <a href="/#chapters" class="nav-link">Chapters <span class="arrow">⌄</span></a>
+                <div class="dropdown-menu">
+                    <a th:each="c : ${chapters}"
+                       th:href="@{/chapter/{number}(number=${c.chapterNumber})}"
+                       th:text="${c.chapterTitle}">Chapter</a>
+                </div>
+            </li>
+        </ul>
+        <a href="/#chapters" class="nav-cta">All Chapters →</a>
+    </nav>
+
+    <section class="chapter-banner">
+        <h1 th:text="'Chapter ' + ${chapter.chapterNumber} + ': ' + ${chapter.chapterTitle}">Chapter 4</h1>
+        <p th:text="${chapter.description}">Chapter description</p>
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <span th:text="'Chapter ' + ${chapter.chapterNumber}">Chapter 4</span>
+        </div>
+    </section>
+
+    <div class="notes-layout">
+
+        <aside class="notes-sidebar">
+            <h3>Topics</h3>
+            <p>Jump to a section</p>
+            <a href="#topic-1">1. Applications</a>
+            <a href="#topic-2">2. Important Questions</a>
+            <a href="#topic-3">3. Summary</a>
+        </aside>
+
+        <main class="notes-content">
+
+            <div class="notes-heading">
+                <h2>Applications and Review</h2>
+                <p>Read the three topics below in order.</p>
+            </div>
+
+            <article class="topic-card" id="topic-1">
+                <span class="topic-number">TOPIC 1</span>
+                <h3>Applications</h3>
+                <p>Seat belts and airbags protect people using Newton's First Law.</p>
+                <br>
+                <p>Brakes use friction to stop vehicles.</p>
+                <br>
+                <p>Sports like football and cricket depend on force and acceleration.</p>
+                <br>
+                <p>Rockets and jet engines work by Newton's Third Law.</p>
+                <div class="important-box">
+                    <strong>Remember</strong>
+                    <p>Force and motion appear in almost everything we do every day.</p>
+                </div>
+            </article>
+
+            <article class="topic-card" id="topic-2">
+                <span class="topic-number">TOPIC 2</span>
+                <h3>Important Questions</h3>
+                <p>1. Differentiate between distance and displacement.</p>
+                <p>2. State Newton's three laws of motion.</p>
+                <p>3. What is inertia? Give two examples.</p>
+                <p>4. A 10 kg object is pushed with 20 N. Find its acceleration.</p>
+                <p>5. Write the three equations of motion.</p>
+                <div class="important-box">
+                    <strong>Answer to Question 4</strong>
+                    <p>a = F / m = 20 / 10 = 2 m/s²</p>
+                </div>
+            </article>
+
+            <article class="topic-card" id="topic-3">
+                <span class="topic-number">TOPIC 3</span>
+                <h3>Summary</h3>
+                <p>Motion is a change of position with time.</p>
+                <br>
+                <p>Force changes motion, and F = ma links force, mass and acceleration.</p>
+                <br>
+                <p>Newton's three laws explain how and why things move.</p>
+                <br>
+                <p>The equations of motion let us calculate velocity, time and distance.</p>
+                <div class="important-box">
+                    <strong>Well done!</strong>
+                    <p>You have completed all four chapters. Revise the important questions before your exam.</p>
+                </div>
+            </article>
+
+            <div class="notes-navigation">
+                <a href="/chapter/3" class="btn-secondary">← Previous: Chapter 3</a>
+                <a href="/" class="btn-primary">Back to Home →</a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <h2 class="footer-logo">Learn<span>Space.</span></h2>
+        <p>Learn at your own pace. Build your future.</p>
+        <p class="copyright">© 2026 LearnSpace. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

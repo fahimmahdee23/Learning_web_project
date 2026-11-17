@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="'LearnSpace | ' + ${chapter.chapterTitle}">LearnSpace | Chapter 2</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="logo">Learn<span>Space.</span></a>
+        <ul class="nav-links">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li class="dropdown">
+                <a href="/#chapters" class="nav-link">Chapters <span class="arrow">⌄</span></a>
+                <div class="dropdown-menu">
+                    <a th:each="c : ${chapters}"
+                       th:href="@{/chapter/{number}(number=${c.chapterNumber})}"
+                       th:text="${c.chapterTitle}">Chapter</a>
+                </div>
+            </li>
+        </ul>
+        <a href="/#chapters" class="nav-cta">All Chapters →</a>
+    </nav>
+
+    <section class="chapter-banner">
+        <h1 th:text="'Chapter ' + ${chapter.chapterNumber} + ': ' + ${chapter.chapterTitle}">Chapter 2</h1>
+        <p th:text="${chapter.description}">Chapter description</p>
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <span th:text="'Chapter ' + ${chapter.chapterNumber}">Chapter 2</span>
+        </div>
+    </section>
+
+    <div class="notes-layout">
+
+        <aside class="notes-sidebar">
+            <h3>Topics</h3>
+            <p>Jump to a section</p>
+            <a href="#topic-1">1. Fundamental Principles</a>
+            <a href="#topic-2">2. Important Terms</a>
+            <a href="#topic-3">3. Examples</a>
+        </aside>
+
+        <main class="notes-content">
+
+            <div class="notes-heading">
+                <h2>Force and Newton's Laws</h2>
+                <p>Read the three topics below in order.</p>
+            </div>
+
+            <article class="topic-card" id="topic-1">
+                <span class="topic-number">TOPIC 1</span>
+                <h3>Fundamental Principles</h3>
+                <p>A force is a push or a pull that can change the speed, direction or shape of an object.</p>
+                <br>
+                <p><b>First Law:</b> An object stays at rest or in uniform motion unless a net force acts on it.</p>
+                <br>
+                <p><b>Second Law:</b> F = m × a</p>
+                <br>
+                <p><b>Third Law:</b> Every action has an equal and opposite reaction.</p>
+                <div class="important-box">
+                    <strong>Remember</strong>
+                    <p>The SI unit of force is the newton (N). 1 N = 1 kg·m/s².</p>
+                </div>
+            </article>
+
+            <article class="topic-card" id="topic-2">
+                <span class="topic-number">TOPIC 2</span>
+                <h3>Important Terms</h3>
+                <p><b>Inertia</b> is the tendency of an object to resist a change in its state of motion.</p>
+                <br>
+                <p><b>Mass</b> is the amount of matter in an object, measured in kg.</p>
+                <br>
+                <p><b>Weight</b> is the force of gravity on an object. W = m × g</p>
+                <br>
+                <p><b>Friction</b> is a force that opposes motion between two surfaces.</p>
+                <div class="important-box">
+                    <strong>Remember</strong>
+                    <p>Mass stays the same everywhere, but weight changes with gravity.</p>
+                </div>
+            </article>
+
+            <article class="topic-card" id="topic-3">
+                <span class="topic-number">TOPIC 3</span>
+                <h3>Examples</h3>
+                <p>Passengers lurch forward when a bus brakes suddenly (First Law).</p>
+                <br>
+                <p>A heavier cart needs more force than a light one to get the same acceleration (Second Law).</p>
+                <br>
+                <p>A rocket moves up because it pushes gas downward (Third Law).</p>
+                <div class="important-box">
+                    <strong>Remember</strong>
+                    <p>Action and reaction forces act on different objects, so they do not cancel each other.</p>
+                </div>
+            </article>
+
+            <div class="notes-navigation">
+                <a href="/chapter/1" class="btn-secondary">← Previous: Chapter 1</a>
+                <a href="/chapter/3" class="btn-primary">Next: Chapter 3 →</a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <h2 class="footer-logo">Learn<span>Space.</span></h2>
+        <p>Learn at your own pace. Build your future.</p>
+        <p class="copyright">© 2026 LearnSpace. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
