@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" th:href="@{/css/quiz.css}">
+</head>
+
+<body>
+
+<div class="result-container">
+
+    <h1>Quiz Completed!</h1>
+
+    <p>Your final score is:</p>
+
+    <h2>
+        <span th:text="${score}">0</span>
+        /
+        <span th:text="${total}">5</span>
+    </h2>
+
+    <p th:if="${score >= 4}">
+        Excellent work! You understand this chapter well.
+    </p>
+
+    <p th:if="${score >= 2 and score < 4}">
+        Good effort! Revise the chapter and try again.
+    </p>
+
+    <p th:if="${score < 2}">
+        Keep practicing. You can improve!
+    </p>
+
+    <a th:href="@{/quiz/chapter1}" class="submit-btn">
+        Try Again
+    </a>
+
+    <br><br>
+
+    <a th:href="@{/}">
+        Back to Home
+    </a>
+
+</div>
+
+</body>
+</html>

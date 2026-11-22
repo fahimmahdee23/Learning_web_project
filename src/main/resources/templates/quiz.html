@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LearnSpace | Chapter Quiz</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/quiz.css}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="/" class="logo">Learn<span>Space.</span></a>
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/chapter/1">Chapter 1</a></li>
+    </ul>
+
+    <a href="/chapter/1" class="nav-cta">Back to Notes →</a>
+</nav>
+
+<section class="chapter-banner">
+    <h1>Chapter 1 Quiz</h1>
+    <p>Introduction to Motion</p>
+
+    <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Quiz</span>
+    </div>
+</section>
+
+<main class="quiz-container">
+
+    <div class="quiz-heading">
+        <span class="tag">CHAPTER ASSESSMENT</span>
+        <h2>Test Your Knowledge</h2>
+        <p>Choose the correct answer for each question.</p>
+    </div>
+
+    <form th:action="@{/quiz/chapter1/submit}" method="post">
+
+        <div class="question-card">
+
+            <h3>01. What is motion?</h3>
+
+            <label>
+                <input type="radio" name="q1" value="A" required>
+                Change in position with time
+            </label>
+
+            <label>
+                <input type="radio" name="q1" value="B">
+                Change in mass
+            </label>
+
+            <label>
+                <input type="radio" name="q1" value="C">
+                Change in temperature
+            </label>
+
+            <label>
+                <input type="radio" name="q1" value="D">
+                Change in shape
+            </label>
+
+        </div>
+
+        <div class="question-card">
+
+            <h3>02. What is the SI unit of speed?</h3>
+
+            <label>
+                <input type="radio" name="q2" value="A" required>
+                Kilometer
+            </label>
+
+            <label>
+                <input type="radio" name="q2" value="B">
+                Meter per second
+            </label>
+
+            <label>
+                <input type="radio" name="q2" value="C">
+                Meter per second squared
+            </label>
+
+            <label>
+                <input type="radio" name="q2" value="D">
+                Second
+            </label>
+
+        </div>
+
+        <div class="question-card">
+
+            <h3>03. Which quantity has both magnitude and direction?</h3>
+
+            <label>
+                <input type="radio" name="q3" value="A" required>
+                Distance
+            </label>
+
+            <label>
+                <input type="radio" name="q3" value="B">
+                Speed
+            </label>
+
+            <label>
+                <input type="radio" name="q3" value="C">
+                Displacement
+            </label>
+
+            <label>
+                <input type="radio" name="q3" value="D">
+                Time
+            </label>
+
+        </div>
+
+        <div class="question-card">
+
+            <h3>04. What is the formula for speed?</h3>
+
+            <label>
+                <input type="radio" name="q4" value="A" required>
+                Time / Distance
+            </label>
+
+            <label>
+                <input type="radio" name="q4" value="B">
+                Distance / Time
+            </label>
+
+            <label>
+                <input type="radio" name="q4" value="C">
+                Distance × Time
+            </label>
+
+            <label>
+                <input type="radio" name="q4" value="D">
+                Distance + Time
+            </label>
+
+        </div>
+
+        <div class="question-card">
+
+            <h3>05. What is acceleration?</h3>
+
+            <label>
+                <input type="radio" name="q5" value="A" required>
+                Rate of change of distance
+            </label>
+
+            <label>
+                <input type="radio" name="q5" value="B">
+                Rate of change of mass
+            </label>
+
+            <label>
+                <input type="radio" name="q5" value="C">
+                Rate of change of time
+            </label>
+
+            <label>
+                <input type="radio" name="q5" value="D">
+                Rate of change of velocity
+            </label>
+
+        </div>
+
+        <button type="submit" class="btn-primary">
+            Submit Answers →
+        </button>
+
+    </form>
+
+</main>
+
+<footer class="footer">
+    <h2 class="footer-logo">Learn<span>Space.</span></h2>
+    <p>Learn at your own pace. Build your future.</p>
+    <p class="copyright">© 2026 LearnSpace. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
